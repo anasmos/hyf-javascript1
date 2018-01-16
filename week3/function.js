@@ -75,17 +75,23 @@ function vehicle1(color, age, listItem) {
 vehicle1("red", 1, 1);
 
 //step10
-let str = "Amazing Joe's Garage, we service ";
-for (let i = 0; i < vehiclesList.length; i++) {
-    str = str + vehiclesList[i] + "s, ";
+function advertise1(types) {
+  let message = 'Amazing Joe\'s Garage, we service ';
+
+  const firstTypes = types.slice(0, -1);
+  const lastType = types.slice(-1);
+
+  for (let i = 0; i < firstTypes.length; i++) {
+    message += i > 0 ? ', ' : '';
+    message += firstTypes[i] + 's';
+  }
+
+  message += ' and ' + lastType + 's.';
+
+  console.log(message);
 }
-//remove the space from the end of string
-str = str.slice(0, -1);
-//replace "," by "." in the end of string
-str = str.replace(/.$/, ".");
-//replace last comma by " and"
-str = str.replace("caravans,", "caravans and");
-console.log(str);
+// Amazing Joe's Garage, we service cars, motorbikes, caravans and bikes.
+advertise1(vehiclesList);
 // step11 
 console.log("if I added a new vehicle to the list the code will not work i should change it");
 console.log("but I can't fond another way");
